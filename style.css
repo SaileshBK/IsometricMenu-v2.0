@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Times:400,700');
+* 
+{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Times', serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* for left side screen split*/
+.split {
+  height: 100%;
+  width: 35%;
+  position: fixed;
+  
+}
+
+.left {
+  left: 0;
+  background-color: lightskyblue;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* for menu item transformation */
+ul{
+  position: relative;
+  transform: skewY(-16deg);
+  transition: 0.5s;
+
+}
+
+ul li{
+  position: relative;
+  list-style: none;
+  width: 200px;
+  background: grey;
+  padding: 25px;
+  z-index: var(--i);
+}
+
+ul li a{
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  transition: 0.5s;
+  color: black;
+  
+}
+
+ul li:hover a{
+  color: aliceblue;
+}
+
+/* for menu item before left side bar*/
+
+ul li::before{
+  content: '';
+  position: absolute;
+  top:0;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  background: darkgray;
+  transform: skewY(45deg);
+  transform-origin: right;
+  transition: 0.5s;
+}
+
+ul li:hover::before{
+  background: lightblue;
+}
+
+/* for menu item after left side bar*/
+
+ul li::after{
+  content: '';
+  position: absolute;
+  top:-40px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: darkgray;
+  transform-origin: bottom;
+  transform: skewX(45deg);
+  transition: 0.5s;
+}
+
+ul li:hover{
+  background: lightblue;
+  transform: translateX(-50px);
+}
+
+ul li:hover::after{
+  background: lightblue;
+}
+
+ul li:last-child::after{
+  box-shadow: -140px 150px 10px rgb(0,0,0,0.50);
+}
+
+
+
